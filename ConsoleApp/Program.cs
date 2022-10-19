@@ -10,6 +10,7 @@ var _dateTimeValue = new DateTime(2022, 10, 31, 23, 59, 59, 999, DateTimeKind.Un
 
 using(var _conn = new SqlConnection(_connectionString))
 {
+    SqlMapper.AddTypeMap(typeof(DateTime), System.Data.DbType.DateTime2);
     var _record = _conn.QueryFirst(_commandText, new { @DateTime = _dateTimeValue });
 
     /*
